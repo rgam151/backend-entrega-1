@@ -3,6 +3,13 @@ import productsRouter from "./routes/products.router.js";
 import cartsRouter from "./routes/carts.router.js";
 import viewsRouter from "./routes/views.router.js";
 import ProductManager from "./managers/productManager.js";
+import mongoose from "mongoose";
+
+mongoose.connect("mongodb://rgamboni151_db_user:eRSJfXbvC4U7x65F@ac-p50v2te-shard-00-00.avxkh9w.mongodb.net:27017,ac-p50v2te-shard-00-01.avxkh9w.mongodb.net:27017,ac-p50v2te-shard-00-02.avxkh9w.mongodb.net:27017/ecommerce?ssl=true&replicaSet=atlas-x97f6z-shard-0&authSource=admin&appName=Cluster1", {
+  serverSelectionTimeoutMS: 5000
+})
+  .then(() => console.log("Mongo conectado"))
+  .catch(err => console.log("Error Mongo:", err));
 
 import { engine } from "express-handlebars";
 import { Server } from "socket.io";
